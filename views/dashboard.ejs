@@ -1,3 +1,67 @@
 <h1 class="mt-4">Dashboard</h1>
 <p class="lead mb-3">Welcome <%= user.name %></p>
 <a href="/users/logout" class="btn btn-secondary">Logout</a>
+
+
+<html>
+<body>
+  
+    
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+ <link
+      rel="stylesheet"
+      href="https://bootswatch.com/4/journal/bootstrap.min.css"
+    />
+<center><h2>Library Management System</h2></center>
+<!--Once the form is submitted, all the form data is forwarded to InsertBooks.php -->
+<form action="InsertBooks.php" method="post">
+
+<table border="2" align="center" cellpadding="5" cellspacing="5">
+<tr>
+<td> Enter ISBN :</td>
+<td> <input type="text" name="isbn" size="48"> </td>
+</tr>
+<tr>
+<td> Enter Title :</td>
+<td> <input type="text" name="title" size="48"> </td>
+</tr>
+<tr>
+<td> Enter Author :</td>
+<td> <input type="text" name="author" size="48"> </td>
+</tr>
+<tr>
+<td> Enter Edition :</td>
+<td> <input type="text" name="edition" size="48"> </td>
+</tr>
+<tr>
+<td> Enter Publication: </td>
+<td> <input type="text" name="publication" size="48"> </td>
+</tr>
+<tr>
+<td></td>
+<td>
+<input type="submit" value="submit">
+<input type="reset" value="Reset">
+</td>
+</tr>
+</table>
+</form>
+ <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+      integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+      integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+      crossorigin="anonymous"
+    ></script>
+
+</body>
+</html>

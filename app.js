@@ -1,11 +1,17 @@
-const express= require('express');
-
+const express = require('express');
+const expressLayouts = require('express-ejs-layouts');
 const app= express();
 
-//routes 
-app.use('/', require('./routes/index'));
+//EJS
+app.use(expressLayouts);
+app.set('view engine', 'ejs');
 
-app.use('/users', require('./routes/user'));
+
+
+//routes 
+app.use('/', require('./routes/index.js'));
+
+app.use('/users', require('./routes/user.js'));
 
 
 const PORT = process.env.PORT||5000;

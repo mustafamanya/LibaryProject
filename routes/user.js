@@ -1,3 +1,5 @@
+// this is where we check for all details in registration page. Also encypts password and adds to database 
+
 const express=require('express');
 const router=express.Router();
 const bcrypt = require('bcryptjs');
@@ -62,8 +64,20 @@ if(errors.length>0){
                 email,
                 password
             });
-            console.log(newUser)
-            res.send('hello');
+            //hash passwords 
+            bcrypt.genSalt(10,(err,salt)=>
+             bcrypt.hash(newUser.password,salt, (err, hash)=>{
+                if(err) throw err;
+                // set password to hash
+                newUser.password=hash;
+                //save user
+                newUser.save()
+                .then(user =>{
+                    res.redirect('/login');
+                })
+                .catch(err=>console.log(err));
+
+            }))
         }
     });
     

@@ -1,11 +1,13 @@
 const express=require('express');
-const router = require('.');
+const router = express.Router();
 
 //book model
 const Books =require('../models/Books');
 
-console.log(Books.bookname);
-console.log('hello');
+//books display
+
+router.get('/displaybook', (req,res)=> res.render('displaybook'));
+
 
 
 router.get('/book', (req,res)=>res.render('book'));
@@ -15,7 +17,7 @@ router.post('/book',(req,res)=>{
     
     const{BookTitle,ISBN,PublishYear,CoverPrice, CheckIn,CheckOut, CheckHistory}=req.body;
 
-    res.send('hello');
+    //res.send('hello');
 
 const NewBook=new Books({
     BookTitle,
@@ -30,6 +32,9 @@ console.log(NewBook);
 NewBook.save()
 .then(Books=>{
     console.log("new book added ")
+    req.flash('success_msg', 'Book now added');
+    res.redirect('/users/displaybook')
+    
 })
 .catch(err=>console.log(err));
     

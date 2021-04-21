@@ -74,7 +74,7 @@ if(errors.length>0){
                 //save user
                 newUser.save()
                 .then(user =>{
-                    req.flash('suscess_msg', 'You are not registred')
+                    req.flash('suscess_msg', 'You are now registred')
                     res.redirect('/users/login');
                 })
                 .catch(err=>console.log(err));
@@ -108,3 +108,5 @@ router.get('/logout', (req, res) => {
   
   
 module.exports=router;
+
+

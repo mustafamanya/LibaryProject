@@ -5,6 +5,32 @@ const flash =require('connect-flash');
 const session= require('express-session');
 const passport=require('passport');
 const app= express();
+const mysql= require('mysql');
+
+
+//create connection with sql
+
+
+// const db= mysql.createConnection({
+//   host     : 'localhost',
+//   user     : 'me',
+//   password : '',
+//   database : 'my_db'
+// });
+
+// //connect to sql
+// db.connect(function(error){
+// //call back
+
+// if(!!error){
+//   console.log('Error')
+// }else{
+//   console.log('Connected');
+// }
+
+// });
+
+
 
 //passport config
  require('./config/passport')(passport);
@@ -12,8 +38,9 @@ const app= express();
 
 //DB config
 const db =require('./config/keys').MongoURI;
+const { connect } = require('./routes/index.js');
 
-//Connect to Mongo
+//Connect to Mongo   
 
 mongoose
   .connect(
@@ -56,12 +83,15 @@ app.use(
 
 //routes 
 app.use('/', require('./routes/index.js'));
-
 app.use('/users', require('./routes/user.js'));
+app.use('/users', require('./routes/books.js'));
 
 
 const PORT = process.env.PORT||5000;
 
+
 app.listen(PORT, console.log('Sever started on port: ', PORT));
+
+
 
 

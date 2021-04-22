@@ -4,6 +4,8 @@ const express=require('express');
 const router=express.Router();
 const bcrypt = require('bcryptjs');
 const passport =require('passport');
+const Books =require('../models/Books');
+
 
 
 // user model
@@ -106,6 +108,8 @@ router.get('/logout', (req, res) => {
     res.redirect('/users/login');
   });
   
+
+
   
 module.exports=router;
 

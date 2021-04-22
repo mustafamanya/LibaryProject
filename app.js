@@ -7,6 +7,9 @@ const passport=require('passport');
 const app= express();
 const mysql= require('mysql');
 
+const Books =require('./models/Books');
+
+
 
 //create connection with sql
 
@@ -87,6 +90,13 @@ app.use('/users', require('./routes/user.js'));
 app.use('/users', require('./routes/books.js'));
 
 
+app.get('/',(req,res)=>{
+  Books.find({},function(books){
+    res.render('displaybook',{
+      bookList:books
+    });
+  })
+})
 
 
 const PORT = process.env.PORT||5000;
